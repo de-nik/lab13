@@ -9,12 +9,14 @@ HunterGate(
     SHA1 "2291d5651b6999408bdc7597b4b487f97e151ca2"
 )
 
-project(demo)
+project(pack)
 
 hunter_add_package(print)
 find_package(print)
 
-add_executable(demo ${CMAKE_CURRENT_SOURCE_DIR}/sources/demo.cpp)
+add_executable(demo ${CMAKE_CURRENT_SOURCE_DIR}/sources/pack.cpp)
+
+
 target_link_libraries(demo print)
 
 install(TARGETS demo RUNTIME DESTINATION bin)

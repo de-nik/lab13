@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/demo.dir/sources/pack.cpp.o  -o demo -rdynamic /root/.hunter/_Base/2291d56/b8de188/3bdad97/Install/lib/libprint.a 
