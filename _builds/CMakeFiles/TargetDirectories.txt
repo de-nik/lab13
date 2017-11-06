@@ -1,7 +1,0 @@
-/root/workspace/projects/lab10/_builds/CMakeFiles/install.dir
-/root/workspace/projects/lab10/_builds/CMakeFiles/list_install_components.dir
-/root/workspace/projects/lab10/_builds/CMakeFiles/rebuild_cache.dir
-/root/workspace/projects/lab10/_builds/CMakeFiles/demo.dir
-/root/workspace/projects/lab10/_builds/CMakeFiles/install/local.dir
-/root/workspace/projects/lab10/_builds/CMakeFiles/edit_cache.dir
-/root/workspace/projects/lab10/_builds/CMakeFiles/install/strip.dir
