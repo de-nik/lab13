@@ -1,13 +1,16 @@
-make_minimum_required(VERSION 3.0)
-set(CMAKE_CXX_STANDARD 11)
+cmake_minimum_required(VERSION 3.5)
+project(lab13)
 
-include(cmake/HunterGate.cmake)
-project(dowload-pugixml)
+set(PACK_SOURCE_FILES sources/pack.cpp)
+set(UNPACK_SOURCE_FILES sources/unpack.cpp)
 
-hunter_add_package(pugixml)
-find_package(pugixml CONFIG REQUIRED)
-add_executable(pack pack.cpp)
-add_executable(unpack unpack.cpp)
+add_subdirectory(pugixml)
+
+add_executable(pack ${PACK_SOURCE_FILES})
+target_link_libraries(pack pugixml)
+
+add_executable(unpack ${UNPACK_SOURCE_FILES})
+target_link_libraries(unpack pugixml)
 
 HunterGate(
     URL "https://github.com/de-nik/hunter/archive/v0.19.137.1.tar.gz"
