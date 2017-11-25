@@ -28,16 +28,17 @@ int main(int argc, char* argv[]) {
 	pugi::xml_node age = person.append_child("age");
 	pugi::xml_node phone = person.append_child("phone");
 
+	std::cout << "First name: ";
 	std::cin >> temp;
 	man.first_name = temp;
-	const char * tmp = man.first_name.c_str();
-	name.append_child(pugi::node_pcdata).set_value(tmp);
-	
+	name.append_child(pugi::node_pcdata).set_value(man.first_name.c_str());
+
+	std::cout << "Last name: ";
 	std::cin >> temp;
 	man.last_name = temp;
-	tmp = man.last_name.c_str();
-	last_name.append_child(pugi::node_pcdata).set_value(tmp);
+	last_name.append_child(pugi::node_pcdata).set_value(man.last_name.c_str());
 
+	std::cout << "email: ";
 	std::cin >> temp;
 	std::string nickname;
 	std::string server;
@@ -45,19 +46,25 @@ int main(int argc, char* argv[]) {
 	std::copy(temp.begin() + temp.find('@'), temp.end(), std::back_inserter(server));
 	man.email.nickname = nickname;
 	man.email.server = server;
-	tmp = temp.c_str();
-	email.append_child(pugi::node_pcdata).set_value(tmp);
+	email.append_child(pugi::node_pcdata).set_value(temp.c_str());
 
-	while (std::cin.peek() != '\n')
-	{
-		std::cin >> man.age;
-		break;
+	std::cout << "age(optional): ";
+	std::string temp_age;
+	std::cin.get();
+	std::getline(std::cin, temp_age);
+	if (temp_age.size() != 0) {
+		man.age = std::stoi(temp_age);
+		age.append_child(pugi::node_pcdata).set_value(temp_age.c_str());
 	}
-
-	std::cin >> temp;
-	man.phone = temp;
-	tmp = man.phone.c_str();
-	phone.append_child(pugi::node_pcdata).set_value(tmp);
-
+	
+	std::cout << "phone(optional): ";
+	std::string temp_phone;
+	std::getline(std::cin, temp_phone);
+	if (temp_phone.size() != 0) {
+		man.phone = temp_age;
+		phone.append_child(pugi::node_pcdata).set_value(temp_phone.c_str());
+	}
 	doc.save_file(myarg);
+	std::cout << "Done";
+
 }
